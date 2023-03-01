@@ -18,6 +18,8 @@ target_link_libraries(CollisionMap)
 
 add_subdirectory(src)
 
+# Don't pull tests in to whoever uses our library
 if(CMAKE_CURRENT_SOURCE_DIR STREQUAL CMAKE_SOURCE_DIR)
-    message(STATUS "GOT HERE!")
+    enable_testing()
+    add_subdirectory(test)
 endif()
