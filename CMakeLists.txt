@@ -9,7 +9,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 add_library(CollisionMap)
 
-target_include_directories(CollisionMap PRIVATE
+target_include_directories(CollisionMap PUBLIC
     include
     src
 )
