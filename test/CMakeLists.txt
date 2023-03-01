@@ -18,6 +18,17 @@ FetchContent_Declare(
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 
+FetchContent_Declare(
+  rapidcheck
+  GIT_REPOSITORY https://github.com/emil-e/rapidcheck.git
+  GIT_TAG        master
+)
+
+FetchContent_MakeAvailable(rapidcheck)
+
+# Add the extras/gtest include directory to the project's include paths
+include_directories(${rapidcheck_SOURCE_DIR}/extras/gtest/include)
+
 enable_testing()
 
 add_executable(
@@ -27,6 +38,7 @@ add_executable(
 target_link_libraries(
   hello_test
   GTest::gtest_main
+  rapidcheck
 )
 
 include(GoogleTest)

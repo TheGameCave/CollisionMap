@@ -1,4 +1,5 @@
 #include <gtest/gtest.h>
+#include <rapidcheck/gtest.h>
 
 // Demonstrate some basic assertions.
 TEST(HelloTest, BasicAssertions) {
@@ -6,4 +7,10 @@ TEST(HelloTest, BasicAssertions) {
   EXPECT_STRNE("hello", "world");
   // Expect equality.
   EXPECT_EQ(7 * 6, 42);
+}
+
+TEST(MyTest, MyProperty) {
+  rc::check([](int x, int y) {
+    ASSERT_TRUE(x + y == y + x);
+  });
 }
