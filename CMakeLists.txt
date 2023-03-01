@@ -17,3 +17,7 @@ target_include_directories(CollisionMap PUBLIC
 target_link_libraries(CollisionMap)
 
 add_subdirectory(src)
+
+if(CMAKE_CURRENT_SOURCE_DIR STREQUAL CMAKE_SOURCE_DIR)
+    message(STATUS "GOT HERE!")
+endif()
